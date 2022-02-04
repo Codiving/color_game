@@ -15,12 +15,33 @@ interface Game {
   answer: number;
   score: number;
   time: number;
+  bgColor: {
+    answer: string;
+    list: string;
+  };
 }
 
 interface Action {
   name: string;
   time?: number;
 }
+
+const getColors = (stage: number) => {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+
+  if (stage <= 33) {
+    return {
+      list: `rgb(${r}, ${g}, ${b - stage * 3}, ${(stage * 3) / 100})`,
+      answer: `rgb(${r}, ${g}, ${b})`
+    };
+  }
+  return {
+    list: `rgb(${r}, ${g}, ${b}, ${(stage * 3) / 100})`,
+    answer: `rgb(${r}, ${g}, ${b})`
+  };
+};
 
 const getBoxCount = (stage: number): number => {
   return Math.pow(Math.round((stage + 0.5) / 2) + 1, 2);
@@ -38,7 +59,8 @@ const nextStage = (state: Game): Game => {
     list: getBoxCount(stage),
     answer: getAnswer(stage),
     score: prevScore + Math.pow(prevStage, 3) * time,
-    time: initTime
+    time: initTime,
+    bgColor: getColors(stage)
   };
 };
 
@@ -48,7 +70,8 @@ const initGameValue = {
   answer: getAnswer(initStage),
   score: initScore,
   time: initTime,
-  gameOver: false
+  gameOver: false,
+  bgColor: getColors(initStage)
 };
 
 const reducer = (state: Game, action: Action): Game => {
