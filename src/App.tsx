@@ -46,8 +46,10 @@ const App = () => {
 
   useEffect(() => {
     if (time <= 0) {
-      alert(`GAME OVER!\n스테이지: ${stage}, 점수: ${score}`);
-      dispatchGame({ name: ACTION_INIT });
+      setTimeout(() => {
+        alert(`GAME OVER!\n스테이지: ${stage}, 점수: ${score}`);
+        dispatchGame({ name: ACTION_INIT });
+      }, 0);
     }
   }, [time, stage, score]);
 
