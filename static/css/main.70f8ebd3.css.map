@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.70f8ebd3.css","mappings":"AAAA,YACE,kBACF,CAEA,YAIE,YAAQ,CADR,YAAa,CACb,OAAQ,CAFR,YAAa,CADb,WAIF","sources":["app.css"],"sourcesContent":[".game__info {\n  margin-bottom: 10px;\n}\n\n.grid__list {\n  width: 360px;\n  height: 360px;\n  display: grid;\n  gap: 3px;\n}\n"],"names":[],"sourceRoot":""}
