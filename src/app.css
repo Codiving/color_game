@@ -1,0 +1,10 @@
+.game__info {
+  margin-bottom: 10px;
+}
+
+.grid__list {
+  width: 360px;
+  height: 360px;
+  display: grid;
+  gap: 3px;
+}
